@@ -24,15 +24,20 @@ def apiSlack_findFactors () :
     usr_num = int(usr_num)
     usr_numFactors = []
 
-    for n in range(2, ceil((usr_num / 2) + 1)) : #One more then half of usr_num, rounded up.
+    for n in range(2, ceil((usr_num / 2) + 2)) : #One more then half of usr_num, rounded up.
         if usr_num % n == 0 :
             usr_numFactors.append(n)
     
     if len(usr_numFactors) == 0 :
         return f"{usr_num} is a prime number, and has no distinct factors."
     else :
-        usr_numFactors = ", ".join(map(str, usr_numFactors))
-        usr_numFactors = usr_numFactors[:-3]
+        usr_numFactors_str = "" 
+        for j in range(len(usr_numFactors)) :
+            if j == len(usr_numFactors) - 1 :
+                usr_numFactors_str = usr_numFactors_str + str(usr_numFactors[j])
+                break
+            usr_numFactors_str = usr_numFactors_str + str(usr_numFactors[j]) + ", "
+
         return f"{usr_num} has the distinct factors of {usr_numFactors}."
 
 if __name__ == '__main__' :
