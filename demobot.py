@@ -1,5 +1,6 @@
 # Import flask
 from flask import Flask, request
+from math import ceil
 
 # Create your app (web server)
 app = Flask(__name__)
@@ -10,7 +11,7 @@ def apiSlack_isPrime () :
     usr_num = request.values.get('text')
     usr_num = int(usr_num)
 
-    for n in range(2, int(usr_num ** 0.5)) : #Square root of usr_num.
+    for n in range(2, ceil(usr_num ** 0.5)) : #Square root of usr_num.
         if usr_num % n == 0 :
             return f"{usr_num} is not a prime number, {n} is a factor."
 
