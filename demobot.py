@@ -28,7 +28,7 @@ def apiSlack_findFactors () :
         if usr_num % n == 0 and n != usr_num :
             usr_numFactors.append(n)
     
-    if len(usr_numFactors) == 0 :
+    if len(usr_numFactors) > 1 :
         return f"{usr_num} is a prime number and as such, has no distinct factors."
     else :
         usr_numFactors_str = "" 
