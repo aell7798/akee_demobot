@@ -14,17 +14,17 @@ def hello_world():
 def page_ncss():
     return '<h1>NCSS!</h1>'
 
-@app.route('/greet')
+@app.route('/greet', methods=['GET', 'POST'])
 def greet_person():
     # Get the value of the 'name' query parameter
     # request.values is a dictionary (cool!)
-    name = request.values.get('name')
+    name = request.values.get('text')
     # This bot says hi to every name it gets sent!
     return f'hi {name}!'
 
-@app.route('/weather')
+@app.route('/weather', methods=['GET', 'POST'])
 def page_weather():
-    temperature = request.values.get('temp')
+    temperature = request.values.get('txt')
     if int(temperature) > 30 :
         return "It's too hot!"
     else :
@@ -33,4 +33,3 @@ def page_weather():
 if __name__ == '__main__':
     # Start the web server!
     app.run()
-    
