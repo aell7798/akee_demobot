@@ -4,31 +4,17 @@ from flask import Flask, request
 # Create your app (web server)
 app = Flask(__name__)
 
+# Judges if a given number is prime
+@app.route("/api/slack/isPrime", methods=['POST'])
+def apiSlack_isPrime () :
+    usr_num = request.value.get('text')
+    usr_num = int(usr_num)
 
-# When people visit the home page '/' use the hello_world function
-@app.route('/')
-def hello_world():
-    return 'Hello, World!'
+    for n in range(usr_num ** 0.5) #Square root of usr_num.
+        if usr_num % n == 0
+            return f"{usr_num} is not a prime number, {n} is a factor."
 
-@app.route('/ncss')
-def page_ncss():
-    return '<h1>NCSS!</h1>'
-
-@app.route('/greet', methods=['GET', 'POST'])
-def greet_person():
-    # Get the value of the 'name' query parameter
-    # request.values is a dictionary (cool!)
-    name = request.values.get('text')
-    # This bot says hi to every name it gets sent!
-    return f'hi {name}!'
-
-@app.route('/weather', methods=['GET', 'POST'])
-def page_weather():
-    temperature = request.values.get('text')
-    if int(temperature) > 30 :
-        return "It's too hot!"
-    else :
-        return f'The temperature is {temperature}.'
+    return f"{usr_num} is a prime number."
 
 if __name__ == '__main__':
     # Start the web server!
