@@ -18,6 +18,7 @@ def apiSlack_isPrime () :
     return f"{usr_num} is a prime number."
 
 # Discovers all factors of given number.
+@app.route("/api/slack/findFactors", methods=['POST'])
 def apiSlack_findFactors () :
     usr_num = request.values.get('text')
     usr_num = int(usr_num)
