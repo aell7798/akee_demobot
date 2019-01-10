@@ -38,7 +38,7 @@ def apiSlack_findFactors () :
                 break
             usr_numFactors_str = usr_numFactors_str + str(usr_numFactors[j]) + ", "
 
-        return f"{usr_num} has the distinct factors of {usr_numFactors}."
+        return f"{usr_num} has the distinct factors of {usr_numFactors_str}."
 
 if __name__ == '__main__' :
     # Start the web server!
