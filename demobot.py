@@ -7,7 +7,7 @@ app = Flask(__name__)
 # Judges if a given number is prime
 @app.route("/api/slack/isPrime", methods=['POST'])
 def apiSlack_isPrime () :
-    usr_num = request.value.get('text')
+    usr_num = request.values.get('text')
     usr_num = int(usr_num)
 
     for n in range(usr_num ** 0.5) : #Square root of usr_num.
